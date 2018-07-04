@@ -26,14 +26,14 @@ if(isset($_POST['submit']))
   $uploaddir_php_memory = 'php://memory'; 
   $uploaddir = '/var/www/html/compressionfile/upload/'; 
   $file_name = $uploaddir.$_FILES['file']['name'];
-    $uploadfile=$_FILES['file']['tmp_name'];
- $fichier= file_get_contents($uploadfile);  
+  $uploadfile=$_FILES['file']['tmp_name'];
+  $fichier= file_get_contents($uploadfile);  
 
 
 echo '<pre>';
       if (!$_FILES["file"]["error"]) {
 
-        /* Elimine les commentaire greca à un regex   */
+        /* Elimine les commentaire grace à un regex   */
 
         $fichier_recu = preg_replace('@(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|((?<!:)//.*)|\x0B|\0|&nbsp|#^(?:\d{2}\.){2}\d{4}#|[\t\r\n]@i',
         '',$fichier)  or die("Unable to open file!"); 
